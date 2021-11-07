@@ -1,6 +1,6 @@
 {
 	"name": "@driftshark/bin",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "",
 	"main": "out/init.lua",
 	"scripts": {
@@ -32,6 +32,6 @@
 		"typescript": "^4.4.4"
 	},
 	"dependencies": {
-		"@driftshark/table": "^1.0.5"
+		"@driftshark/table": "^1.0.6"
 	}
 }
