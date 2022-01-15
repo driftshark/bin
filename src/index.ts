@@ -2,6 +2,7 @@ export type BinItem =
 	| (() => unknown)
 	| RBXScriptConnection
 	| { destroy(): void }
+	| { Disconnect(): void }
 	| { Destroy(): void }
 	| { cancel(): void };
 
@@ -11,6 +12,8 @@ const cleanItem = (item: BinItem) => {
 	if (typeIs(item, "function")) {
 		item();
 	} else if (typeIs(item, "RBXScriptConnection")) {
+		item.Disconnect();
+	} else if ("Disconnect" in item) {
 		item.Disconnect();
 	} else if ("Destroy" in item) {
 		item.Destroy();
