@@ -78,7 +78,7 @@ export = () => {
 			const livePromise = new Promise((resolve) => {
 				resolve(true);
 			});
-			expect(stalePromise.getStatus() === Promise.Status.Started).to.equal(
+			expect(livePromise.getStatus() === Promise.Status.Started).to.equal(
 				true
 			);
 			const livePromiseResult = bin.addPromise(livePromise);
