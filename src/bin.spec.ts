@@ -75,12 +75,10 @@ export = () => {
 			bin.addPromise(stalePromise);
 			expect(deepEquals(bin["items"], {})).to.equal(true);
 
-			const livePromise = new Promise((resolve) => {
+			const livePromise = Promise.defer((resolve) => {
 				resolve(true);
 			});
-			expect(livePromise.getStatus() === Promise.Status.Started).to.equal(
-				true
-			);
+			expect(livePromise.getStatus() === Promise.Status.Started).to.equal(true);
 			const livePromiseResult = bin.addPromise(livePromise);
 			const [liveIndex] = next(bin["items"]);
 			expect(bin.get(liveIndex)).to.equal(livePromiseResult);
