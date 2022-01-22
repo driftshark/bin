@@ -28,10 +28,12 @@ export class Bin {
 	private items = new Map<string, BinItem>();
 	public destroyed = false;
 
-	public add<TItem extends BinItem>(
+	public add<TItem extends BinItem | undefined>(
 		item: TItem,
 		index: string = HttpService.GenerateGUID(false)
 	): TItem {
+		if (item === undefined) return item;
+
 		if (this.destroyed) {
 			cleanItem(item);
 			return item;
@@ -46,9 +48,11 @@ export class Bin {
 		return item;
 	}
 
-	public addPromise<TPromise extends Promise<unknown>>(
+	public addPromise<TPromise extends Promise<unknown> | undefined>(
 		item: TPromise
 	): TPromise {
+		if (item === undefined) return item;
+
 		if (this.destroyed) {
 			cleanItem(item);
 			return item;
