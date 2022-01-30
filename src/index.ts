@@ -13,10 +13,10 @@ const cleanItem = (item: BinItem) => {
 		item();
 	} else if (typeIs(item, "RBXScriptConnection")) {
 		item.Disconnect();
-	} else if ("Disconnect" in item) {
-		item.Disconnect();
 	} else if ("Destroy" in item) {
 		item.Destroy();
+	} else if ("Disconnect" in item) {
+		item.Disconnect();
 	} else if ("destroy" in item) {
 		item.destroy();
 	} else if ("cancel" in item) {
